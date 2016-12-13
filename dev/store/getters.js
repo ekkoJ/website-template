@@ -1,3 +1,4 @@
 export default {
-    todoCount: state => state.todos.length,
+    // basicInfo: state => state.basicInfo,
+    // eduInfo: state => state.eduInfo,
 };

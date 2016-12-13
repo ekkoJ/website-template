@@ -1,3 +1,3 @@
 export default {
-    ADD_TODO: 'ADD_TODO',
+    UPDATE_INFO: 'UPDATE_INFO',
 };
