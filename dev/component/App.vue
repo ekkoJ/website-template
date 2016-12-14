@@ -2,8 +2,10 @@
     <div class="app-container">
         <basic-info></basic-info>
         <edu-info></edu-info>
+        <work-info></work-info>
 
         <hr>
+
         <button
             @click="submitHandler">submit</button>
 
@@ -15,6 +17,7 @@
 import { mapActions } from 'vuex';
 import BasicInfo from './BasicInfo.vue';
 import EduInfo from './EduInfo.vue';
+import WorkInfo from './WorkInfo.vue';
 
 export default {
     methods: {
@@ -28,6 +31,7 @@ export default {
     components: {
         BasicInfo,
         EduInfo,
+        WorkInfo,
     }
 }
 </script>

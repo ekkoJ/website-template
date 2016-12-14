@@ -1,7 +1,7 @@
 <template lang="html">
     <div class="basic-info">
         <h1>Basic Information</h1>
-        
+
         <input
             type="text"
             name="name"

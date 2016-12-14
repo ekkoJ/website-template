@@ -7,34 +7,34 @@
             name="educateFrom"
             v-model="educateFrom">
 
-            <input
-                type="date"
-                name="educateTo"
-                v-model="educateTo">
+        <input
+            type="date"
+            name="educateTo"
+            v-model="educateTo">
 
-            <input
-                type="text"
-                name="school"
-                placeholder="school"
-                v-model="school">
+        <input
+            type="text"
+            name="school"
+            placeholder="school"
+            v-model="school">
 
-            <input
-                type="text"
-                name="major"
-                placeholder="major"
-                v-model="major">
+        <input
+            type="text"
+            name="major"
+            placeholder="major"
+            v-model="major">
 
-            <input
-                type="text"
-                name="diploma"
-                placeholder="diploma"
-                v-model="diploma">
+        <input
+            type="text"
+            name="diploma"
+            placeholder="diploma"
+            v-model="diploma">
 
-            <input
-                type="text"
-                name="english"
-                placeholder="english"
-                v-model="english">
+        <input
+            type="text"
+            name="english"
+            placeholder="english"
+            v-model="english">
 
         <button
             @click="clickHandler">next</button>
@@ -69,7 +69,7 @@ export default {
                 english: this.english,
             });
         }
-    }
+    },
 }
 </script>
 

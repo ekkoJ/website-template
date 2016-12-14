@@ -25,6 +25,15 @@ const eduInfoProps = [
     'diploma',
     'english',
 ];
+const workInfoProps = [
+    'workFrom',
+    'workTo',
+    'company',
+    'position',
+    'positionDescription',
+    'treatment',
+    'leaveReason',
+];
 const fields = {};
 
 const client = contentful.createClient({
@@ -62,6 +71,14 @@ export default {
                 'en-US': state.eduInfo[prop],
             };
         }
+
+        for (const prop of workInfoProps) {
+            fields[prop] = {
+                'en-US': state.workInfo[prop],
+            };
+        }
+
+        console.log('==========', fields);
 
         client.getSpace(spaceID)
         .then(space => {
