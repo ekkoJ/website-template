@@ -1,6 +1,7 @@
 <template lang="html">
     <div class="basic-info">
         <h1>Basic Information</h1>
+        
         <input
             type="text"
             name="name"
@@ -77,22 +78,19 @@ export default {
     },
     methods: {
         ...mapActions([
-            'updateInfo',
+            'updateBasicInfo',
         ]),
         clickHandler() {
-            this.updateInfo({
-                type: 'basicInfo',
-                info: {
-                    name: this.name,
-                    sex: parseInt(this.sex),
-                    birthday: this.birthday,
-                    nativePlace: this.nativePlace,
-                    mail: this.mail,
-                    phone: this.phone,
-                    applyFor: this.applyFor,
-                    salary: this.salary,
-                    arrive: this.arrive,
-                },
+            this.updateBasicInfo({
+                name: this.name,
+                sex: parseInt(this.sex),
+                birthday: this.birthday,
+                nativePlace: this.nativePlace,
+                mail: this.mail,
+                phone: this.phone,
+                applyFor: this.applyFor,
+                salary: this.salary,
+                arrive: this.arrive,
             });
         },
     },

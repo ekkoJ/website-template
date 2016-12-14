@@ -6,47 +6,67 @@ const accessToken = '31091dca9128fe769d67d8ea32d03f991a8920dc1c822204ada172e792a
 const spaceID = '0s9519swmi94';
 const entryUser = 'user';
 
+const basicInfoPorps = [
+    'name',
+    'sex',
+    'birthday',
+    'nativePlace',
+    'mail',
+    'phone',
+    'applyFor',
+    'salary',
+    'arrive',
+];
+const eduInfoProps = [
+    'educateFrom',
+    'educateTo',
+    'school',
+    'major',
+    'diploma',
+    'english',
+];
+const fields = {};
+
 const client = contentful.createClient({
     accessToken,
 });
 
 export default {
-    updateInfo({commit}, infoObj) {
-        commit(types.UPDATE_INFO, infoObj);
+    updateBasicInfo({commit}, info) {
+        commit(types.UPDATE_INFO, {
+            type: 'basicInfo',
+            info,
+        });
+    },
+    updateEduInfo({commit}, info) {
+        commit(types.UPDATE_INFO, {
+            type: 'eduInfo',
+            info,
+        });
+    },
+    updateWorkInfo({commit}, info) {
+        commit(types.UPDATE_INFO, {
+            type: 'workInfo',
+            info,
+        });
     },
     submitUserInfo({state}) {
+        for (const prop of basicInfoPorps) {
+            fields[prop] = {
+                'en-US': state.basicInfo[prop],
+            };
+        }
+
+        for (const prop of eduInfoProps) {
+            fields[prop] = {
+                'en-US': state.eduInfo[prop],
+            };
+        }
+
         client.getSpace(spaceID)
         .then(space => {
             space.createEntry(entryUser, {
-                fields: {
-                    name: {
-                        'en-US': state.basicInfo.name,
-                    },
-                    sex: {
-                        'en-US': state.basicInfo.sex,
-                    },
-                    birthday: {
-                        'en-US': state.basicInfo.birthday,
-                    },
-                    nativePlace: {
-                        'en-US': state.basicInfo.nativePlace,
-                    },
-                    mail: {
-                        'en-US': state.basicInfo.mail,
-                    },
-                    phone: {
-                        'en-US': state.basicInfo.phone,
-                    },
-                    applyFor: {
-                        'en-US': state.basicInfo.applyFor,
-                    },
-                    salary: {
-                        'en-US': state.basicInfo.salary,
-                    },
-                    arrive: {
-                        'en-US': state.basicInfo.arrive,
-                    },
-                },
+                fields,
             })
             .then(e => console.log(e));
         });
